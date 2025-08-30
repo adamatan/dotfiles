@@ -1,9 +1,11 @@
 # Git Configuration - Personal
 # Personal Git settings with productivity-focused aliases
+# Based on github.com/josephschmitt/dotfiles
 
 [user]
-	email = dev@joe.sh
-	name = Joe Schmitt
+	name = Adam Matan
+	email = adam@matan.name
+	signingKey = 12B06DB2D8C232B740CD3E0F789AFB08DA8A8308
 
 [alias]
   # Quick commit operations
@@ -37,27 +39,13 @@
   # Reset operations
   rs = "!f() { git reset ${@:-HEAD~1}; }; f"                          # Reset to previous commit
 
-# Git behavior configuration
-[branch]
-  autosetuprebase = always    # Always rebase when pulling
-
 [core]
-	editor = $EDITOR            # Use system default editor
-  pager = delta
-
-[color]
-  ui = auto                   # Enable colored output
-
-
-[interactive]
-    diffFilter = delta --color-only
+	editor = code --wait
+	pager = diff-so-fancy | less --tabs=4 -RFX
 
 # Diff and merge tool configuration
 [diff]
   tool = micro               # Use micro as default diff tool
-
-[difftool "default-difftool"]
-  cmd = micro --diff $LOCAL $REMOTE
 
 [difftool "vscode"]
   cmd = "code-insiders --wait --diff  "
@@ -93,14 +81,7 @@
   autoStash = true           # Automatically stash changes during rebase
 
 [init]
-	defaultBranch = main       # Use 'main' as default branch name
-
-[delta]
-  navigate = true  # use n and N to move between diff sections
-  dark = true      # or light = true, or omit for auto-detection
-  line-numbers = true
-  side-by-side = true
-  syntax-theme = Dracula
+	defaultBranch = main
 
 # Git-spice configuration (stacked diffs workflow)
 [spice "branchCheckout"]
@@ -111,3 +92,31 @@
 
 [spice "submit"]
 	navigationComment = multiple  # Allow multiple navigation comments
+
+
+[pager]
+	branch = false
+
+[commit]
+	gpgsign = true
+
+[interactive]
+	diffFilter = diff-so-fancy --patch
+
+[color]
+	ui = true
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
