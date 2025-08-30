@@ -1,6 +1,7 @@
 # 🏠 Dotfiles
 
 Personal development environment configuration files managed with [GNU Stow](https://www.gnu.org/software/stow/).
+This repo is a fork of https://github.com/josephschmitt/dotfiles.
 
 ## 📋 Overview
 
@@ -24,8 +25,11 @@ git clone git@github.com:josephschmitt/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 # Make sure we don't symlink the entire .config directory
 mkdir -p ~/.config
-stow shared personal
+stow dotfiles
 ```
+
+# Unused
+This part belongs to the original repo. I haven't tried it. The "work" repo is renamed to "stash".
 
 ### 💼 Work Machine
 

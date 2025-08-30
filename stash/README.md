@@ -1,4 +1,7 @@
-# Dotfiles
+# Stash
+These config files come from the original repo. I'm keeping them for reference, and only using the ones in the dotfiles directory.
+
+## Dotfiles
 
 Personal configuration files for development environment using [GNU Stow](https://www.gnu.org/software/stow/) with work/personal separation.
 
