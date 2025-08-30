@@ -13,7 +13,7 @@
         "todoread": true,
         "todowrite": true,
         "webfetch": true,
-        "edit": false,
+        "edit": true,
         "bash": false,
         "patch": false
       }
@@ -29,7 +29,7 @@
         "todoread": true,
         "todowrite": true,
         "webfetch": true,
-        "edit": false,
+        "edit": true,
         "bash": false,
         "patch": false
       }
