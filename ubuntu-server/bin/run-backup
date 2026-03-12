@@ -21,7 +21,7 @@ LOG_FILE=""
 while [ $# -gt 0 ]; do
   case "$1" in
     --log)
-      LOG_FILE="/home/josephschmitt/rsync-backup.log"
+      LOG_FILE="/home/adam/rsync-backup.log"
       shift
       ;;
     --log=*)

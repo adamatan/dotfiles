@@ -6,7 +6,7 @@
 set -e
 
 LOG_FILE="/var/log/docker-compose-restart.log"
-COMPOSE_DIRS=("/home/josephschmitt/hbojoe" "/home/josephschmitt/schmitt.town")
+COMPOSE_DIRS=("/home/adam/hbojoe" "/home/adam/schmitt.town")
 
 log() {
     echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" | tee -a "$LOG_FILE"

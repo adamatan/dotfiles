@@ -25,7 +25,7 @@
     })
   ];
 
-  system.primaryUser = "josephschmitt";
+  system.primaryUser = "adam";
 
   environment.systemPackages = with pkgs; [
     asdf-vm

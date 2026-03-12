@@ -97,7 +97,7 @@ in
     serviceConfig = {
       ProgramArguments = [
         "${pkgs.bash}/bin/bash"
-        "/Users/josephschmitt/bin/immich-sync"
+        "/Users/adam/bin/immich-sync"
       ];
       StartCalendarInterval = [
         {
@@ -105,8 +105,8 @@ in
           Minute = 0;
         }
       ];
-      StandardErrorPath = "/Users/josephschmitt/Library/Logs/immich-sync/launchd-error.log";
-      StandardOutPath = "/Users/josephschmitt/Library/Logs/immich-sync/launchd-output.log";
+      StandardErrorPath = "/Users/adam/Library/Logs/immich-sync/launchd-error.log";
+      StandardOutPath = "/Users/adam/Library/Logs/immich-sync/launchd-output.log";
       EnvironmentVariables = {
         PATH = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin";
       };

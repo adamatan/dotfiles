@@ -10,7 +10,7 @@ For a fresh Ubuntu server, use the bootstrap script to set up Docker and system 
 
 ```bash
 # Clone the repo
-git clone git@github.com:josephschmitt/dotfiles.git ~/dotfiles
+git clone git@github.com:adamatan/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 
 # Run bootstrap script (requires sudo)
@@ -133,13 +133,13 @@ The `run-backup` script provides automated rsync backups with predefined exclusi
 
 ```bash
 # Run backup (shows output)
-run-backup /home/josephschmitt joe@synology:/volume1/NetBackup/buntubox
+run-backup /home/adam joe@synology:/volume1/NetBackup/buntubox
 
 # Run backup with logging to default file (also shows output)
-run-backup --log /home/josephschmitt joe@synology:/volume1/NetBackup/buntubox
+run-backup --log /home/adam joe@synology:/volume1/NetBackup/buntubox
 
 # Run backup with custom log file
-run-backup --log=/path/to/custom.log /home/josephschmitt joe@synology:/volume1/NetBackup/buntubox
+run-backup --log=/path/to/custom.log /home/adam joe@synology:/volume1/NetBackup/buntubox
 
 # View help
 run-backup --help
@@ -149,7 +149,7 @@ run-backup --help
 
 The default crontab runs daily at 2:00 AM with logging enabled:
 ```
-0 2 * * * /home/josephschmitt/bin/run-backup --log /home/josephschmitt joe@synology:/volume1/NetBackup/buntubox
+0 2 * * * /home/adam/bin/run-backup --log /home/adam joe@synology:/volume1/NetBackup/buntubox
 ```
 
 **What Gets Excluded:**

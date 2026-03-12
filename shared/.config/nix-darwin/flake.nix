@@ -20,7 +20,7 @@
           # enableRosetta = true;
 
           # User owning the Homebrew prefix
-          user = "josephschmitt";
+          user = "adam";
 
           # With mutableTaps disabled, taps can no longer be added imperatively with `brew tap`.
           # mutableTaps = false;

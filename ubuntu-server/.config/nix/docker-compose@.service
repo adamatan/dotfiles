@@ -10,13 +10,13 @@ BindsTo=docker.service
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-WorkingDirectory=/home/josephschmitt/%i
+WorkingDirectory=/home/adam/%i
 
 # ----- run root-less -------------------------------------------------
-User=josephschmitt
+User=adam
 
 # Make sure systemd can find the CLI in your nix profile
-Environment="PATH=/home/josephschmitt/.nix-profile/bin:/usr/local/bin:/usr/bin"
+Environment="PATH=/home/adam/.nix-profile/bin:/usr/local/bin:/usr/bin"
 
 # ----- Compose commands ---------------------------------------------
 ExecStart=/usr/bin/env docker compose up -d

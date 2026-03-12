@@ -39,7 +39,7 @@ sudo nix --extra-experimental-features nix-command --extra-experimental-features
 ### 🏠 Personal Machine
 
 ```bash
-git clone git@github.com:josephschmitt/dotfiles.git ~/.dotfiles
+git clone git@github.com:adamatan/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
 # Apply nix-darwin configuration (installs packages, sets system preferences)
@@ -52,7 +52,7 @@ nix_rebuild
 ### 💼 Work Machine
 
 ```bash
-git clone git@github.com:josephschmitt/dotfiles.git ~/.dotfiles
+git clone git@github.com:adamatan/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 git submodule update --init --recursive
 
@@ -77,7 +77,7 @@ This clears the `work/` directory and unregisters the submodule without affectin
 ### 🐧 Ubuntu Server
 
 ```bash
-git clone git@github.com:josephschmitt/dotfiles.git ~/.dotfiles
+git clone git@github.com:adamatan/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
 # Install user-level configuration files

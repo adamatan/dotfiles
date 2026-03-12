@@ -8,7 +8,7 @@ A bespoke [Neovim](https://neovim.io/) configuration built from scratch on [kick
 
 After months of daily-driving [AstroNvim](https://astronvim.com/) and [LazyVim](https://www.lazyvim.org/), I had a config that worked — but I didn't *understand* it. Distros are powerful, but they're someone else's opinions wrapped in layers of abstraction. When something broke, I was debugging framework internals instead of Neovim.
 
-This config is the opposite. Every plugin was added one at a time, tested, understood, and committed individually. The [commit history](https://github.com/josephschmitt/dotfiles/commits/main/shared/.config/nvim) reads like a build log — from stock kickstart.nvim to a full IDE in ~60 commits. Nothing is here "because the distro included it." Everything earns its place.
+This config is the opposite. Every plugin was added one at a time, tested, understood, and committed individually. The [commit history](https://github.com/adamatan/dotfiles/commits/main/shared/.config/nvim) reads like a build log — from stock kickstart.nvim to a full IDE in ~60 commits. Nothing is here "because the distro included it." Everything earns its place.
 
 The AstroNvim and LazyVim configs still exist alongside this one (via `NVIM_APPNAME` isolation). They serve as feature references and fallbacks — but this is the daily driver.
 

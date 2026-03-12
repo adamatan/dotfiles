@@ -77,7 +77,7 @@ Once the implementation is done:
 
 ```
 /implement-linear-issue JJS-78
-/implement-linear-issue https://linear.app/josephschmitt/issue/JJS-78/add-new-feature
+/implement-linear-issue https://linear.app/your-workspace/issue/JJS-78/add-new-feature
 ```
 
 ## Notes

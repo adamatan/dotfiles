@@ -13,7 +13,7 @@ This document describes how to recreate this Docker server from scratch.
 
 ```bash
 # 1. Clone this repo and run bootstrap script
-git clone git@github.com:josephschmitt/dotfiles.git ~/dotfiles
+git clone git@github.com:adamatan/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 stow shared ubuntu-server
 sudo bootstrap
@@ -311,4 +311,4 @@ docker compose up -d
 
 **Last Updated**: 2025-10-19  
 **Server**: buntubox  
-**Maintained by**: josephschmitt
+**Maintained by**: adamatan

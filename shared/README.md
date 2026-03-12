@@ -27,7 +27,7 @@ sudo pacman -S stow
 #### Personal Machine Setup
 ```bash
 # 1. Clone the repository
-git clone git@github.com:josephschmitt/dotfiles.git ~/.dotfiles
+git clone git@github.com:adamatan/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
 # 2. Update personal email in personal/.gitconfig
@@ -45,7 +45,7 @@ exec $SHELL
 #### Work Machine Setup
 ```bash
 # 1. Clone the repository
-git clone git@github.com:josephschmitt/dotfiles.git ~/.dotfiles
+git clone git@github.com:adamatan/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 
 # 2. Initialize work submodule (requires access to private work repo)

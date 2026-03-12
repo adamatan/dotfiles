@@ -59,3 +59,45 @@ PR branches are based on `upstream/main` so they don't include your personal cus
 ## Known Merge Conflicts
 
 The `flake.nix` has a hardcoded username. When upstream updates that file, expect a trivial one-line conflict on the `user = "..."` line.
+
+## Personalization Checklist
+
+When this repo was forked, the following identity replacements were made.
+
+### What Was Replaced
+
+| Field | Original (josephschmitt) | Replaced With (adamatan) |
+|-------|--------------------------|--------------------------|
+| Git name | `Joe Schmitt` / `josephschmitt` | `Adam Matan` |
+| Git email (personal) | `dev@joe.sh` | `adam@matan.name` |
+| Git email (server) | `josephschmitt@users.noreply.github.com` | `adamatan@users.noreply.github.com` |
+| macOS username | `josephschmitt` | `adam` |
+| Linux username | `josephschmitt` | `adam` |
+| GitHub clone URLs | `josephschmitt/dotfiles` | `adamatan/dotfiles` |
+| Raycast extension author | `josephschmitt` | `adamatan` |
+| SSH named hosts | `mac-mini`, `krang`, `buntubox` | Removed (Joe's machines) |
+| Work submodule | `dotfiles-work-private` | Removed entirely |
+| Linear skill example URL | `linear.app/josephschmitt/` | Genericized |
+
+### What Was Intentionally Kept
+
+| Item | Location | Reason |
+|------|----------|--------|
+| Upstream attribution | `FORK.md` | Documents fork relationship |
+| `josephschmitt/pj.nvim` | Neovim plugin specs | GitHub plugin repo, not identity |
+| Blog post link & image | `README.md` (`joe.sh`) | Upstream author's content |
+| "JoeVim" branding | Neovim dashboard/docs | Upstream branding |
+| `joe@synology` | Crontab, README | NAS-specific, not a repo username |
+| `hbojoe`, `schmitt.town` | Docker Compose scripts | Joe's project names, not identity |
+| Homebrew taps | `darwin.nix` (`josephschmitt/tap`) | Points to Joe's tap repo for `pj` |
+
+### If You Fork This Repo
+
+1. Search for `adamatan` and replace with your GitHub username
+2. Search for `adam@matan.name` and replace with your email
+3. Search for `/Users/adam/` and `/home/adam/` and replace with your username
+4. Update `flake.nix` user field
+5. Update `darwin.nix` primaryUser field
+6. Update or remove SSH host entries in `.ssh/config-base`
+7. Update Raycast extension author in `leader-key/config.json`
+8. Remove or update the work submodule in `.gitmodules`

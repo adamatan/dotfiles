@@ -8,8 +8,8 @@ BindsTo=docker.service
 Type=oneshot
 RemainAfterExit=no
 ExecStart=/usr/local/bin/restart-docker-compose.sh
-User=josephschmitt
-Group=josephschmitt
+User=adam
+Group=adam
 
 [Install]
 WantedBy=docker.service

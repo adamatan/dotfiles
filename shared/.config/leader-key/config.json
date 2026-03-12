@@ -103,12 +103,12 @@
         {
           "key" : "d",
           "type" : "folder",
-          "value" : "/Users/josephschmitt/development"
+          "value" : "/Users/adam/development"
         },
         {
           "key" : "D",
           "type" : "folder",
-          "value" : "/Users/josephschmitt/Downloads"
+          "value" : "/Users/adam/Downloads"
         }
       ],
       "key" : "f",
@@ -206,7 +206,7 @@
         {
           "key" : "g",
           "type" : "url",
-          "value" : "raycast://extensions/josephschmitt/gif-search/search"
+          "value" : "raycast://extensions/adamatan/gif-search/search"
         },
         {
           "key" : "o",
