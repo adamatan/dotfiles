@@ -1,5 +1,7 @@
 # 🏠 Dotfiles
 
+> **Fork of [josephschmitt/dotfiles](https://github.com/josephschmitt/dotfiles)** with local customizations. See [FORK.md](FORK.md) for the upstream sync workflow.
+
 Personal development environment configuration files managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
 ![Terminal Setup](https://joe.sh/content/16-terminal-tools/terminal2.jpeg)
