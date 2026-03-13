@@ -1,0 +1,52 @@
+# Ignore everything by default — remove lines as you adopt each component
+
+# Shell init files
+\.bash_profile
+\.bashrc
+\.profile
+\.zprofile
+\.zshenv
+\.zshrc
+
+# Git
+\.gitconfig-base
+
+# SSH
+\.ssh
+
+# Claude
+\.claude
+
+# Misc dotfiles
+\.helix-wezterm\.yaml
+\.ignore
+\.warp
+
+# bin scripts
+bin
+
+# Documentation
+README\.md
+
+# .config subdirectories
+\.config/astronvim
+\.config/bat
+\.config/eza
+\.config/fish
+\.config/ghostty
+\.config/helix
+\.config/lazygit
+\.config/lazyvim
+\.config/leader-key
+\.config/mcphub
+\.config/nix-darwin
+\.config/nvim
+\.config/oh-my-posh
+\.config/sesh
+\.config/shell
+\.config/television
+\.config/tmux
+\.config/workmux
+\.config/yazi
+\.config/zed
+\.config/zellij

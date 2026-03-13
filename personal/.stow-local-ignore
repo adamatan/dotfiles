@@ -1,0 +1,20 @@
+# Ignore everything by default — remove lines as you adopt each component
+
+# Git
+\.gitconfig
+
+# SSH
+\.ssh
+
+# Claude
+\.claude
+
+# bin scripts
+bin
+
+# .config subdirectories
+\.config/fish
+\.config/immich-sync
+\.config/nix
+\.config/opencode
+\.config/pj

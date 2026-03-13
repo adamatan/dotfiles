@@ -51,6 +51,7 @@
           nixpkgs-fmt
 
           # Misc CLI
+          ffmpeg
           atuin
           gum
           terminal-notifier

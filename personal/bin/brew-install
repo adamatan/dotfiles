@@ -1,0 +1,36 @@
+#!/bin/sh
+# Homebrew packages for personal macOS machine
+# Run this on a fresh machine after installing Homebrew
+# Usage: ./brew-install
+
+set -e
+
+# Taps
+brew tap raine/workmux
+
+# GUI apps (casks)
+brew install --cask \
+  ghostty \
+  leader-key \
+  moom \
+  raycast \
+  tailscale-app \
+  visual-studio-code
+
+# Commented out casks (uncomment to install):
+# arc          — Arc browser
+# hyperkey     — Remaps Caps Lock to Hyper key (Ctrl+Opt+Cmd+Shift)
+# setapp       — App subscription service (~$10/month, 240+ macOS apps)
+
+# CLI tools (brews)
+brew install \
+  cmux \
+  gemini-cli \
+  raine/workmux/workmux \
+  scooter
+
+# Commented out brews (uncomment to install):
+# television                  — Fuzzy finder (already in Nix flake)
+# josephschmitt/tap/pj        — Project jumper (zoxide covers this)
+
+echo "Done."
