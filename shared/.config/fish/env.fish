@@ -27,7 +27,6 @@ setenv ZIDE_USE_FOCUS_PLUGIN true
 # fd respects .ignore files automatically, just exclude .git
 setenv FZF_DEFAULT_COMMAND "fd --type f --hidden --follow --exclude=.git"
 
-fish_add_path --global --prepend "$HOME/.nix-profile/bin"
 fish_add_path --global --prepend /run/current-system/sw/bin
 fish_add_path --global --prepend /nix/var/nix/profiles/default/bin
 

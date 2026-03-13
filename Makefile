@@ -1,7 +1,11 @@
 .PHONY: nix brew manual dotfiles simulate upstream
 
 nix:
-	nix profile upgrade 'personal/.config/nix'
+	@if nix profile list 2>/dev/null | grep -q 'personal/.config/nix'; then \
+		nix profile upgrade 'personal/.config/nix'; \
+	else \
+		nix profile add path:personal/.config/nix; \
+	fi
 
 brew:
 	./personal/bin/brew-install
