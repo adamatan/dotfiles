@@ -15,6 +15,7 @@ bin
 # .config subdirectories
 # \.config/fish
 \.config/immich-sync
-\.config/nix
+# \.config/nix
 \.config/opencode
+# pj project-jump config is personal (search paths, project list) — never stow
 \.config/pj
