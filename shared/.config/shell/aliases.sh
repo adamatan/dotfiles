@@ -1,6 +1,9 @@
 # Shared aliases for all POSIX-compatible shells
 
 # Navigation and utilities
+alias gs="git status"
+alias gp="git push"
+alias gd="git diff"
 alias c="clear"
 alias cat="bat"
 alias groot="echo 'I am Groot!' && cd \$(git rev-parse --show-toplevel)"
