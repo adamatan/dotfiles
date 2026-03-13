@@ -20,6 +20,7 @@ brew install --cask \
   leader-key \
   moom \
   raycast \
+  google-chrome \
   tailscale-app \
   visual-studio-code
 
