@@ -1,5 +1,9 @@
 # Agent Guidelines for Dotfiles Repository
 
+## Active Plan
+
+See `PLAN.md` for the current work plan: packages to add, stow decisions for each ignored config, and enhancements in progress.
+
 ## Critical Context
 - **Repository Type**: Personal dotfiles managed with GNU Stow
 - **No Build System**: Configuration files only, no tests/linting
