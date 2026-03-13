@@ -51,6 +51,17 @@
           nil
           nixpkgs-fmt
 
+          # GNU userland (replaces macOS BSD tools)
+          coreutils
+          findutils
+          gnused
+          gnugrep
+          gawk
+          gnumake
+          diffutils
+          wget
+          curl
+
           # Misc CLI
           ffmpeg
           yazi
