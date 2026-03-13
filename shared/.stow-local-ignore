@@ -30,8 +30,8 @@ README\.md
 
 # .config subdirectories
 \.config/astronvim
-\.config/bat
-\.config/eza
+# \.config/bat
+# \.config/eza
 # \.config/fish
 # \.config/ghostty
 \.config/helix
