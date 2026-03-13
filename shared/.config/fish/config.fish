@@ -15,6 +15,11 @@ if status is-interactive
         start_interactive
     end
 
+    # Unified shell history (local only — no cloud sync)
+    if command -q atuin
+        atuin init fish | source
+    end
+
     # Auto-start tmux disabled — start tmux manually
     # if not set -q VSCODE_INJECTION; and not set -q INSIDE_EMACS
     #     auto_start_tmux

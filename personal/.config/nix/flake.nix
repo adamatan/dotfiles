@@ -62,6 +62,10 @@
           wget
           curl
 
+          # Security & encryption
+          age
+          gnupg
+
           # Misc CLI
           ffmpeg
           yazi

@@ -142,22 +142,11 @@ fi
 # Replay all cached completions
 zinit cdreplay -q
 
-# Keybindings
-bindkey '^[[A' history-search-backward # Up arrow
-bindkey '^[[B' history-search-forward # Down arrow
-
-# Completion history tweaks to be more like fish
-HISTSIZE=5000
-HISTFILE=~/.zsh_history
-SAVEHIST=$HISTSIZE
-HISTDUP=erase
-setopt appendhistory
-setopt sharehistory
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_ignore_dups
-setopt hist_find_no_dups
+# Unified shell history (local only — no cloud sync)
+# atuin replaces native HISTFILE and up-arrow/Ctrl+R bindings
+if command -v atuin &>/dev/null; then
+  eval "$(atuin init zsh)"
+fi
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Case-insensitive completion

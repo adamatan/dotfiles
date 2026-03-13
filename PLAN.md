@@ -8,9 +8,9 @@ Checklist to stow — or explicitly ignore with reason — every entry in `share
 
 ## Packages to Add
 
-- [ ] `age` — modern file encryption tool (simpler alternative to GPG for encrypting secrets/files)
-- [ ] `gnupg` — GNU Privacy Guard; GPG key management, signing commits, encrypting files
-- [ ] `tree` — display directory structure as a tree (note: `eza --tree` already available via `tree` alias)
+- [x] `age` — modern file encryption tool; added to Nix flake (`personal/.config/nix/flake.nix`)
+- [x] `gnupg` — GNU Privacy Guard; added to Nix flake (`personal/.config/nix/flake.nix`)
+- [x] `tree` — not needed; `eza` (already in Nix flake) is aliased as `tree` via `tree` alias in shell config
 
 ---
 

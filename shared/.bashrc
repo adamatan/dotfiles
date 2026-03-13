@@ -41,3 +41,8 @@ fi
 # Auto-start tmux if available
 auto_start_tmux
 
+# Unified shell history (local only — no cloud sync)
+if command -v atuin &>/dev/null; then
+  eval "$(atuin init bash)"
+fi
+
