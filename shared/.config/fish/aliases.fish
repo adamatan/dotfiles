@@ -3,6 +3,7 @@
 alias ..="cd .."
 alias ...="cd ../.."
 alias gs="git status"
+alias glo="git --no-pager log --oneline -30"
 alias gp="git push"
 alias gd="git diff"
 alias c="clear"
