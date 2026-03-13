@@ -9,3 +9,7 @@
 [user]
 	email = adam@matan.name
 	name = Adam Matan
+	signingKey = 12B06DB2D8C232B740CD3E0F789AFB08DA8A8308
+
+[commit]
+	gpgSign = true

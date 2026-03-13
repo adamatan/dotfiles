@@ -63,8 +63,8 @@ if [ -z "$TMUX" ] || [ -z "$TMUX_INTERACTIVE_LOADED" ]; then
   start_interactive
 fi
 
-# Auto-start tmux if available
-auto_start_tmux
+# Auto-start tmux disabled — start tmux manually
+# auto_start_tmux
 
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"

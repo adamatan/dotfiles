@@ -15,10 +15,10 @@ if status is-interactive
         start_interactive
     end
 
-    # Auto-start tmux if available (skip for IDE/editor integrated terminals)
-    if not set -q VSCODE_INJECTION; and not set -q INSIDE_EMACS
-        auto_start_tmux
-    end
+    # Auto-start tmux disabled — start tmux manually
+    # if not set -q VSCODE_INJECTION; and not set -q INSIDE_EMACS
+    #     auto_start_tmux
+    # end
 end
 
 # Fish-specific functions

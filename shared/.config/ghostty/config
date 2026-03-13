@@ -5,7 +5,7 @@ clipboard-read = allow
 clipboard-write = allow
 cursor-style = bar
 desktop-notifications = true
-font-family = Monaco Nerd Font Mono
+font-family = JetBrainsMono Nerd Font Mono
 font-size = 13
 font-thicken = true
 quick-terminal-animation-duration = 0.15
@@ -15,7 +15,7 @@ quick-terminal-size = 800px,100%
 quick-terminal-autohide = false
 shell-integration = fish
 theme = Catppuccin Mocha
-working-directory = $HOME/development
+working-directory = /Users/adam/repos
 
 # Keybindings
 keybind = global:ctrl+`=toggle_quick_terminal

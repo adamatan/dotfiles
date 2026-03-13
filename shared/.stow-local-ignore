@@ -1,15 +1,15 @@
 # Ignore everything by default — remove lines as you adopt each component
 
 # Shell init files
-\.bash_profile
-\.bashrc
-\.profile
-\.zprofile
-\.zshenv
-\.zshrc
+# \.bash_profile
+# \.bashrc
+# \.profile
+# \.zprofile
+# \.zshenv
+# \.zshrc
 
 # Git
-\.gitconfig-base
+# \.gitconfig-base
 
 # SSH
 \.ssh
@@ -23,7 +23,7 @@
 \.warp
 
 # bin scripts
-bin
+# bin
 
 # Documentation
 README\.md
@@ -32,21 +32,21 @@ README\.md
 \.config/astronvim
 \.config/bat
 \.config/eza
-\.config/fish
-\.config/ghostty
+# \.config/fish
+# \.config/ghostty
 \.config/helix
-\.config/lazygit
-\.config/lazyvim
+# \.config/lazygit
+# \.config/lazyvim
 \.config/leader-key
 \.config/mcphub
 \.config/nix-darwin
-\.config/nvim
-\.config/oh-my-posh
-\.config/sesh
-\.config/shell
+# \.config/nvim
+# \.config/oh-my-posh
+# \.config/sesh
+# \.config/shell
 \.config/television
-\.config/tmux
+# \.config/tmux
 \.config/workmux
-\.config/yazi
+# \.config/yazi
 \.config/zed
 \.config/zellij

@@ -8,6 +8,12 @@ set -e
 # Taps
 brew tap raine/workmux
 
+# Fonts
+brew install --cask \
+  font-meslo-lg-nerd-font \
+  font-fira-code-nerd-font \
+  font-jetbrains-mono-nerd-font
+
 # GUI apps (casks)
 brew install --cask \
   ghostty \

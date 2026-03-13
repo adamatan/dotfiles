@@ -13,6 +13,7 @@
         name = "personal-env";
         paths = with pkgs; [
           # Shells & prompt
+          bash
           fish
           oh-my-posh
           zoxide
@@ -52,6 +53,7 @@
 
           # Misc CLI
           ffmpeg
+          yazi
           atuin
           gum
           terminal-notifier

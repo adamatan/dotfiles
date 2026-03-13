@@ -56,6 +56,54 @@ PR branches are based on `upstream/main` so they don't include your personal cus
 | Start a PR for upstream | `git checkout -b pr/topic upstream/main` |
 | Submit the PR | `gh pr create --repo josephschmitt/dotfiles --head adamatan:pr/topic` |
 
+## Fresh Machine Setup (Manual Steps)
+
+Steps not covered by `install.sh` or the README — do these once on a new machine.
+
+### 1. Install Nix
+```bash
+sh <(curl -L https://nixos.org/nix/install)
+```
+
+### 2. Install Nix packages
+```bash
+git add personal/.config/nix/flake.nix  # must be staged
+nix --extra-experimental-features "nix-command flakes" profile install ~/dotfiles/personal/.config/nix
+```
+
+### 3. Install Homebrew packages
+```bash
+./personal/bin/brew-install
+```
+
+### 4. Install Nerd Fonts (for tmux/neovim icons)
+Already included in `brew-install`. If installing manually:
+```bash
+brew install --cask font-jetbrains-mono-nerd-font font-meslo-lg-nerd-font font-fira-code-nerd-font
+```
+
+### 5. Set fish as default shell
+```bash
+echo /Users/adam/.nix-profile/bin/fish | sudo tee -a /etc/shells
+chsh -s /Users/adam/.nix-profile/bin/fish
+```
+
+### 6. Install dotfiles
+```bash
+./install.sh shared personal
+```
+
+### 7. Install TPM (tmux plugin manager) and plugins
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+Then inside tmux: press `Ctrl-s I` to install plugins.
+
+### 8. Create `~/repos` directory
+```bash
+mkdir -p ~/repos
+```
+
 ## Known Merge Conflicts
 
 The `flake.nix` has a hardcoded username. When upstream updates that file, expect a trivial one-line conflict on the `user = "..."` line.

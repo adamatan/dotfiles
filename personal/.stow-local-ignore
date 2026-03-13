@@ -1,7 +1,7 @@
 # Ignore everything by default — remove lines as you adopt each component
 
 # Git
-\.gitconfig
+# \.gitconfig
 
 # SSH
 \.ssh
@@ -13,7 +13,7 @@
 bin
 
 # .config subdirectories
-\.config/fish
+# \.config/fish
 \.config/immich-sync
 \.config/nix
 \.config/opencode
