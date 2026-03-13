@@ -1,5 +1,7 @@
 # Fish Shell Aliases
 
+alias ..="cd .."
+alias ...="cd ../.."
 alias gs="git status"
 alias gp="git push"
 alias gd="git diff"
@@ -16,7 +18,7 @@ alias wm="workmux"
 alias ls="eza"
 alias ll="eza -l"
 alias la="eza -la"
-alias lt="eza --tree"
+alias lt="eza -l --sort=modified"
 alias tree="eza --tree"
 
 alias gsb="git-spice branch"
