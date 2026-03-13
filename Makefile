@@ -1,4 +1,4 @@
-.PHONY: nix brew manual dotfiles simulate
+.PHONY: nix brew manual dotfiles simulate upstream
 
 nix:
 	nix profile upgrade 'personal/.config/nix'
@@ -14,3 +14,7 @@ dotfiles:
 
 simulate:
 	stow --simulate -v --target="$(HOME)" shared personal
+
+upstream:
+	git fetch upstream
+	git merge upstream/main
