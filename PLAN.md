@@ -26,11 +26,7 @@ Checklist to stow — or explicitly ignore with reason — every entry in `share
 
 ## `shared/` — Not Yet Stowed
 
-- [ ] `.ssh` ⚠️ conflict: `~/.ssh` exists
-  - **Dir**: `shared/.ssh/`
-  - **Purpose**: SSH client configuration
-  - **Config**: `config-base` with a single `Host *` block (defaults: no strict host checking on new hosts, forwarding settings). Personal host entries were removed.
-  - **Action needed**: Decide whether to stow — contains no secrets but is sensitive. Consider stowing only `config-base` and symlinking manually.
+- [x] `.ssh` *(permanent ignore)* — machine-specific, not worth managing via dotfiles
 
 - [ ] `.claude` ⚠️ conflict: `~/.claude` exists
   - **Dir**: `shared/.claude/`
@@ -96,10 +92,7 @@ Checklist to stow — or explicitly ignore with reason — every entry in `share
 
 ## `personal/` — Not Yet Stowed
 
-- [ ] `.ssh` ⚠️ conflict: `~/.ssh` exists
-  - **Dir**: `personal/.ssh/` *(if exists)*
-  - **Purpose**: Personal SSH keys/config overrides
-  - **Action needed**: Check contents; keep ignored if it contains private keys.
+- [x] `.ssh` *(permanent ignore)* — machine-specific, not worth managing via dotfiles
 
 - [ ] `.claude` ⚠️ conflict: `~/.claude` exists
   - **Dir**: `personal/.claude/`

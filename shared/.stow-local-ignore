@@ -11,7 +11,7 @@
 # Git
 # \.gitconfig-base
 
-# SSH
+# SSH — permanent ignore: machine-specific, not worth managing via dotfiles
 \.ssh
 
 # Claude
