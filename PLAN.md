@@ -20,7 +20,7 @@ Checklist to stow — or explicitly ignore with reason — every entry in `share
 - [ ] Add `make ubuntu` target — stow target for `shared ubuntu-server` profile, parallel to `make dotfiles`
 - [ ] Improve README — reflect new repo structure (personal/shared/ubuntu-server profiles, Nix flake, Makefile), keep attribution to Joe Schmitt, consolidate installation steps into a single section
 - [ ] Simplify installation steps — collapse multi-step fresh machine setup (Nix, brew, manual, stow) into one place; cross-reference `FORK.md` and `Makefile` targets
-- [ ] Unify shell history across processes — configure fish and zsh to share a single history file, and enable history sync across concurrent sessions (e.g. via `atuin`, which is already in the Nix flake)
+- [x] Unify shell history across processes — `atuin` (already in Nix flake) handles shared, synced history across fish, zsh, and concurrent sessions
 
 ---
 
