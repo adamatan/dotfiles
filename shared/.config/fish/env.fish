@@ -29,6 +29,7 @@ setenv FZF_DEFAULT_COMMAND "fd --type f --hidden --follow --exclude=.git"
 
 fish_add_path --global --prepend /run/current-system/sw/bin
 fish_add_path --global --prepend /nix/var/nix/profiles/default/bin
+fish_add_path --global --prepend "$HOME/.nix-profile/bin"
 
 fish_add_path --global --prepend /opt/homebrew/bin
 fish_add_path --global --prepend "$HOME/.bun/bin"
