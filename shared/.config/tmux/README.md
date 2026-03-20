@@ -52,7 +52,12 @@ git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
 ### 3. Install plugins
 
-Inside tmux, press: `Ctrl-s I` (prefix + I)
+Run the bootstrap script:
+```bash
+tmux-bootstrap
+```
+
+Or manually inside any tmux session: `Ctrl-s I` (prefix + I)
 
 ## Custom Layouts
 

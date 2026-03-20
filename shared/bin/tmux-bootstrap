@@ -1,0 +1,19 @@
+#!/bin/sh
+# Bootstrap TPM (Tmux Plugin Manager) - install all declared plugins
+# This is required after first stowing the dotfiles to populate
+# ~/.config/tmux/plugins/ with the plugins configured in 30-plugins.conf
+
+set -e
+
+TPM_DIR="$HOME/.config/tmux/plugins/tpm"
+
+if [ ! -d "$TPM_DIR" ]; then
+    echo "Error: TPM not found at $TPM_DIR"
+    echo "Install TPM first:"
+    echo "  git clone https://github.com/tmux-plugins/tpm $TPM_DIR"
+    exit 1
+fi
+
+echo "Installing tmux plugins via TPM..."
+"$TPM_DIR/bin/install_plugins"
+echo "✓ Tmux plugins installed successfully"

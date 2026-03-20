@@ -4,6 +4,21 @@ Common issues and fixes for tools in this dotfiles repository.
 
 ## tmux
 
+### Status bar shows plain default (no hostname/git/time info)
+
+**Symptom:** Tmux status bar is plain (e.g., just `[1:fish#]`) instead of showing hostname, directory, git branch, and time.
+
+**Cause:** TPM plugins haven't been installed yet. The tmux config declares the plugins in `shared/.config/tmux/conf.d/30-plugins.conf`, but they must be downloaded to `~/.config/tmux/plugins/`.
+
+**Fix:**
+```bash
+tmux-bootstrap
+```
+
+Or manually inside any tmux session: Press `Ctrl-s I` (prefix + I)
+
+**Why this happens:** The `plugins/` directory is in `.gitignore`, so plugins aren't tracked in git. They must be installed locally by TPM after stowing the dotfiles.
+
 ### Server exited unexpectedly
 
 **Symptom:** Running `tmux` gives the error:
