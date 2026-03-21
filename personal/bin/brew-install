@@ -15,7 +15,7 @@ brew install --cask \
   font-jetbrains-mono-nerd-font
 
 # GUI apps (casks)
-brew install --cask \
+brew install --cask --adopt \
   ghostty \
   leader-key \
   moom \
