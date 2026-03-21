@@ -6,8 +6,8 @@
 # SSH — permanent ignore: machine-specific, not worth managing via dotfiles
 \.ssh
 
-# Claude
-\.claude
+# Claude — ignore settings.json only (real file managed by Claude Code, not stow)
+^/\.claude/settings\.json$
 
 # bin scripts
 bin

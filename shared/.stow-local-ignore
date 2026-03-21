@@ -14,8 +14,8 @@
 # SSH — permanent ignore: machine-specific, not worth managing via dotfiles
 \.ssh
 
-# Claude
-\.claude
+# Claude — stow skills/hooks/statusline; README is docs-only, not needed at target
+^\.claude/README\.md$
 
 # Misc dotfiles
 \.helix-wezterm\.yaml
