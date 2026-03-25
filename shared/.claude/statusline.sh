@@ -13,6 +13,10 @@ if git -C "$CURRENT_DIR" rev-parse --git-dir >/dev/null 2>&1; then
   IS_GIT_REPO=true
 fi
 
+# Extract rate limit information
+FIVE_HOUR=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
+SEVEN_DAY=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
+
 # Extract context window information
 CONTEXT_SIZE=$(echo "$input" | jq -r '.context_window.context_window_size // 0 | tonumber? // 0')
 CURRENT_USAGE=$(echo "$input" | jq '.context_window.current_usage // empty')
@@ -109,6 +113,18 @@ if [ "$IS_GIT_REPO" = true ]; then
   fi
 fi
 
-# Output format: [Model] [percentage] 📁 directory  branch +added -deleted ⇡ahead ⇣behind
+# Build rate limit info
+RATE_INFO=""
+if [ -n "$FIVE_HOUR" ]; then
+  RATE_INFO=" \033[90m[5h: $(printf '%.0f' "$FIVE_HOUR")%"
+  if [ -n "$SEVEN_DAY" ]; then
+    RATE_INFO="${RATE_INFO} 7d: $(printf '%.0f' "$SEVEN_DAY")%"
+  fi
+  RATE_INFO="${RATE_INFO}]\033[0m"
+elif [ -n "$SEVEN_DAY" ]; then
+  RATE_INFO=" \033[90m[7d: $(printf '%.0f' "$SEVEN_DAY")%]\033[0m"
+fi
+
+# Output format: [Model] [percentage] 📁 directory  branch +added -deleted ⇡ahead ⇣behind [5h: X% 7d: Y%]
 # Use ANSI color codes: cyan for model, white for directory, green for branch
-echo -e "\033[36m🤖 $MODEL_DISPLAY\033[0m$CONTEXT_PERCENT \033[37m📁 $DIR_NAME\033[0m$GIT_BRANCH$GIT_DIFF_STATS$GIT_SYNC_STATUS"
+echo -e "\033[36m🤖 $MODEL_DISPLAY\033[0m$CONTEXT_PERCENT \033[37m📁 $DIR_NAME\033[0m$GIT_BRANCH$GIT_DIFF_STATS$GIT_SYNC_STATUS$RATE_INFO"
