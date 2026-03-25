@@ -7,6 +7,7 @@ alias gs="git status"
 alias glo="git --no-pager log --oneline -15"
 alias gla="git log --oneline"
 alias gp="git push"
+alias gpf="git push --force"
 alias gd="git diff"
 alias gb="git branch"
 alias c="clear"
@@ -16,6 +17,7 @@ alias lg="env TMPDIR=/tmp lazygit"
 alias lazyvim='NVIM_APPNAME=lazyvim command nvim'
 alias astrovim='NVIM_APPNAME=astronvim command nvim'
 alias wm="workmux"
+alias gerp="grep"
 
 # Eza (modern ls replacement) aliases
 alias ls="eza"
