@@ -15,6 +15,7 @@ fi
 
 # Extract rate limit information
 FIVE_HOUR=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // empty')
+FIVE_HOUR_RESETS=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // empty')
 SEVEN_DAY=$(echo "$input" | jq -r '.rate_limits.seven_day.used_percentage // empty')
 
 # Extract context window information
@@ -113,10 +114,26 @@ if [ "$IS_GIT_REPO" = true ]; then
   fi
 fi
 
+# Calculate time remaining in 5h window
+FIVE_HOUR_REMAINING=""
+if [ -n "$FIVE_HOUR_RESETS" ]; then
+  NOW=$(date +%s)
+  SECS_LEFT=$(( FIVE_HOUR_RESETS - NOW ))
+  if [ "$SECS_LEFT" -gt 0 ]; then
+    HOURS_LEFT=$(( SECS_LEFT / 3600 ))
+    MINS_LEFT=$(( (SECS_LEFT % 3600) / 60 ))
+    if [ "$HOURS_LEFT" -gt 0 ]; then
+      FIVE_HOUR_REMAINING=" ${HOURS_LEFT}h${MINS_LEFT}m"
+    else
+      FIVE_HOUR_REMAINING=" ${MINS_LEFT}m"
+    fi
+  fi
+fi
+
 # Build rate limit info
 RATE_INFO=""
 if [ -n "$FIVE_HOUR" ]; then
-  RATE_INFO=" \033[90m[5h: $(printf '%.0f' "$FIVE_HOUR")%"
+  RATE_INFO=" \033[90m[5h: $(printf '%.0f' "$FIVE_HOUR")%${FIVE_HOUR_REMAINING}"
   if [ -n "$SEVEN_DAY" ]; then
     RATE_INFO="${RATE_INFO} 7d: $(printf '%.0f' "$SEVEN_DAY")%"
   fi
