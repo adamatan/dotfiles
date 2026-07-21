@@ -1,0 +1,111 @@
+name: Ubuntu Server Install
+
+# Verifies a fresh Ubuntu box can (1) build and install the whole nix package
+# set and (2) stow the shared + ubuntu-server profiles without conflicts.
+# Runs in a bare ubuntu:24.04 container so it exercises the real first-run path
+# (distro-default dotfile backup, deps coming only from nix), not the loaded
+# GitHub-hosted image.
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'install.sh'
+      - 'ubuntu-server/**'
+      - 'shared/**'
+      - '.github/workflows/ubuntu-install.yml'
+
+concurrency:
+  group: ubuntu-install-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  nix-env:
+    name: Build & install nix package set
+    runs-on: ubuntu-latest
+    container: ubuntu:24.04
+    # The container runs as root, but GitHub sets HOME=/github/home (owned by the
+    # runner uid, not root). Nix would warn and fall back to /root, splitting the
+    # install location from where the verify step looks. Pin HOME to the owned dir.
+    env:
+      HOME: /root
+    steps:
+      - name: Install base prerequisites
+        run: |
+          apt-get update -qq
+          apt-get install -y -qq curl git xz-utils ca-certificates sudo
+
+      - uses: actions/checkout@v4
+
+      - name: Install Nix (Determinate)
+        uses: DeterminateSystems/nix-installer-action@main
+        with:
+          # No systemd inside the container — install the daemon-less way.
+          init: none
+          # Match install.sh's bootstrap_nix, which uses the Determinate flavour.
+          determinate: true
+
+      - name: Install the ubuntu-server package set
+        # Use a `path:` flake ref, not the default git fetcher: the workspace is
+        # owned by the runner uid while this step runs as root, so libgit2 refuses
+        # the repo ("not owned by current user"). path: copies the tree directly.
+        run: nix profile install "path:./ubuntu-server/.config/nix#default"
+
+      - name: Verify key binaries landed on the profile
+        run: |
+          export PATH="$HOME/.nix-profile/bin:$PATH"
+          fail=0
+          for bin in stow fish nvim tmux git gh eza fzf rg monocle kt multica; do
+            if command -v "$bin" >/dev/null 2>&1; then
+              echo "ok:      $bin -> $(command -v "$bin")"
+            else
+              echo "MISSING: $bin"
+              fail=1
+            fi
+          done
+          exit "$fail"
+
+  stow:
+    name: Stow shared + ubuntu-server
+    runs-on: ubuntu-latest
+    container: ubuntu:24.04
+    steps:
+      - name: Install base prerequisites
+        run: |
+          apt-get update -qq
+          apt-get install -y -qq git stow ca-certificates
+
+      - uses: actions/checkout@v4
+
+      - name: Seed distro-default dotfiles
+        # A fresh Ubuntu ships these as plain files. install.sh must move them
+        # aside (not clobber them) so stow doesn't abort the whole run.
+        run: |
+          printf '# distro default\n' > "$HOME/.bashrc"
+          printf '# distro default\n' > "$HOME/.profile"
+
+      - name: Run install.sh (shared + ubuntu-server)
+        run: ./install.sh shared ubuntu-server
+
+      - name: Verify files were stowed
+        run: |
+          fail=0
+          check_link() {
+            if [ -L "$1" ]; then
+              echo "ok:      $1 -> $(readlink "$1")"
+            else
+              echo "NOT A SYMLINK: $1"
+              fail=1
+            fi
+          }
+          check_link "$HOME/.config/fish/config.fish"
+          check_link "$HOME/.config/shell/aliases.sh"
+          check_link "$HOME/.gitconfig"
+          check_link "$HOME/.config/fish/config.ubuntu-server.fish"
+          if [ -f "$HOME/.dotfiles-pre-stow-backup/.bashrc" ]; then
+            echo "ok:      distro default .bashrc backed up, not clobbered"
+          else
+            echo "MISSING: backup of distro-default .bashrc"
+            fail=1
+          fi
+          exit "$fail"
