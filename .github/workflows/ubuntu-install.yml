@@ -55,7 +55,7 @@ jobs:
         run: |
           export PATH="$HOME/.nix-profile/bin:$PATH"
           fail=0
-          for bin in stow fish nvim tmux git gh eza fzf ripgrep monocle kt multica; do
+          for bin in stow fish nvim tmux git gh eza fzf rg monocle kt multica; do
             if command -v "$bin" >/dev/null 2>&1; then
               echo "ok:      $bin -> $(command -v "$bin")"
             else
