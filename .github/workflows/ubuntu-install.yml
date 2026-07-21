@@ -24,6 +24,11 @@ jobs:
     name: Build & install nix package set
     runs-on: ubuntu-latest
     container: ubuntu:24.04
+    # The container runs as root, but GitHub sets HOME=/github/home (owned by the
+    # runner uid, not root). Nix would warn and fall back to /root, splitting the
+    # install location from where the verify step looks. Pin HOME to the owned dir.
+    env:
+      HOME: /root
     steps:
       - name: Install base prerequisites
         run: |
@@ -41,7 +46,10 @@ jobs:
           determinate: true
 
       - name: Install the ubuntu-server package set
-        run: nix profile install ./ubuntu-server/.config/nix#default
+        # Use a `path:` flake ref, not the default git fetcher: the workspace is
+        # owned by the runner uid while this step runs as root, so libgit2 refuses
+        # the repo ("not owned by current user"). path: copies the tree directly.
+        run: nix profile install "path:./ubuntu-server/.config/nix#default"
 
       - name: Verify key binaries landed on the profile
         run: |
