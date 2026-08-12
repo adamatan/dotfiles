@@ -108,6 +108,8 @@ mkdir -p ~/repos
 
 The `flake.nix` has a hardcoded username. When upstream updates that file, expect a trivial one-line conflict on the `user = "..."` line.
 
+`personal/.mcp.json` and `ubuntu-server/.mcp.json` were deleted here (see below). If upstream edits them, expect a delete/modify conflict — resolve it by keeping the deletion (`git rm`). Do not restore the file: it registers Joe's `monocle` binary and his private `knowledge.schmitt.town` MCP server, and stows to `~/.mcp.json`, which makes Claude Code prompt to enable both in every session started from the home directory.
+
 ## Personalization Checklist
 
 When this repo was forked, the following identity replacements were made.
@@ -126,6 +128,7 @@ When this repo was forked, the following identity replacements were made.
 | SSH named hosts | `mac-mini`, `krang`, `buntubox` | Removed (Joe's machines) |
 | Work submodule | `dotfiles-work-private` | Removed entirely |
 | Linear skill example URL | `linear.app/josephschmitt/` | Genericized |
+| `.mcp.json` (personal, ubuntu-server) | `monocle` + `knowledge-vault` servers | Deleted (Joe's tools and private server) |
 
 ### What Was Intentionally Kept
 
