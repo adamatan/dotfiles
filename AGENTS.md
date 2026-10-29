@@ -10,7 +10,7 @@ See `PLAN.md` for the current work plan: packages to add, stow decisions for eac
 - **Platforms**: macOS (primary), Ubuntu Server (secondary)
 - **Shells**: Fish (primary) → Zsh (secondary) → Bash (fallback)
 - **Editors**: Neovim (triple setup: Kickstart + LazyVim + AstroNvim) + Helix (secondary)
-- **Profiles**: `shared/` (all), `personal/` (macOS), `work/` (macOS), `remote-sandbox/` (remote Linux base), `rca/` (RCA overlay), `crafting/` (crafting.dev overlay), `ubuntu-server/` (Ubuntu)
+- **Profiles**: `shared/` (all), `personal/` (macOS), `work/` (macOS), `remote-sandbox/` (remote Linux base), `rca/` (RCA overlay), `crafting/` (crafting.dev overlay), `ubuntu-server/` (Ubuntu), `mac-studio/` (Elad's shared Mac Studio, used instead of `personal/`)
 
 ### Stow Commands
 ```bash

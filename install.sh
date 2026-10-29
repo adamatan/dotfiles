@@ -8,6 +8,7 @@
 #   ./install.sh shared remote-sandbox crafting     # Crafting sandbox (stow only)
 #   ./install.sh --deps-preset core shared remote-sandbox crafting  # Minimal deps
 #   ./install.sh shared ubuntu-server               # Ubuntu server (stow only)
+#   ./install.sh shared mac-studio                  # Elad's shared Mac Studio (stow only)
 #   ./install.sh --dirs-only                        # CI: only pre-create directories, skip stow
 #   ./install.sh --bootstrap                        # Fresh machine: install Nix, nix-darwin,
 #                                                   #   etc., then stow + TPM (interactive)

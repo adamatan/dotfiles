@@ -1,0 +1,25 @@
+# Git Configuration - Mac Studio
+# No GitHub SSH key on this machine: HTTPS with the "mac-studio" token via gh,
+# and commits signed with the Studio's own SSH key.
+
+# Include shared base configuration
+[include]
+	path = ./.gitconfig-base
+
+[user]
+	email = adam@matan.name
+	name = Adam Matan
+	signingKey = ~/.ssh/id_ed25519.pub
+
+[gpg]
+	format = ssh
+
+[commit]
+	gpgSign = true
+
+[credential "https://github.com"]
+	helper =
+	helper = !gh auth git-credential
+
+[url "https://github.com/"]
+	insteadOf = git@github.com:
