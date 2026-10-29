@@ -3,10 +3,15 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-  outputs = { self, nixpkgs }:
+  # herdr tracks the latest nixpkgs while everything else stays on the older
+  # nixpkgs lock. Bump just herdr with `nix flake update nixpkgs-latest`.
+  inputs.nixpkgs-latest.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
+  outputs = { self, nixpkgs, nixpkgs-latest }:
     let
       system = "aarch64-darwin";
       pkgs = import nixpkgs { inherit system; };
+      pkgs-latest = import nixpkgs-latest { inherit system; };
     in
     {
       packages.${system}.default = pkgs.buildEnv {
@@ -26,6 +31,7 @@
           tmux
           zellij
           sesh
+          pkgs-latest.herdr
 
           # Git
           gh

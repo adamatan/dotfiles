@@ -18,6 +18,19 @@ Pi) with no edits — `nix profile upgrade` resolves the running machine's arch
 automatically. The `multica` prebuilt binary is pinned per-arch and selected to
 match.
 
+### herdr tracks a separate nixpkgs
+
+herdr comes from the `nixpkgs-latest` input, so it can move ahead of the rest.
+Bump herdr alone with `nix flake update nixpkgs-latest`. To hold everything
+else back (e.g. to a channel release a few weeks old), lock `nixpkgs` to a rev
+from [releases.nixos.org](https://releases.nixos.org/?prefix=nixpkgs/):
+
+```sh
+$ nix flake lock --override-input nixpkgs github:NixOS/nixpkgs/<rev>
+```
+
+A plain `nix flake update` moves both inputs to the latest tip.
+
 ### Bumping the custom pins (`nix_bump`)
 
 The nixpkgs-tracked tools move together via `nix flake update` above. The

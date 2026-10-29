@@ -3,6 +3,10 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
+  # herdr tracks the latest nixpkgs while everything else stays on the older
+  # nixpkgs lock. Bump just herdr with `nix flake update nixpkgs-latest`.
+  inputs.nixpkgs-latest.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
   # multica ships as a prebuilt binary per arch — pin one input per system and
   # pick the right tarball below. Pin a FIXED release tag (not latest/download):
   # a moving URL re-fetches new bytes on every multica release while flake.lock
@@ -17,7 +21,7 @@
     flake = false;
   };
 
-  outputs = { self, nixpkgs, multica-bin-amd64, multica-bin-arm64 }:
+  outputs = { self, nixpkgs, nixpkgs-latest, multica-bin-amd64, multica-bin-arm64 }:
     let
       # Build for every arch this package set runs on (x86_64 server + arm64 Pi).
       systems = [ "x86_64-linux" "aarch64-linux" ];
@@ -26,6 +30,7 @@
       packagesFor = system:
         let
           pkgs = import nixpkgs { inherit system; };
+          pkgs-latest = import nixpkgs-latest { inherit system; };
 
           # Select the multica tarball matching the current architecture.
           multica-bin = {
@@ -161,6 +166,7 @@
               gnumake
               gofumpt
               gum
+              pkgs-latest.herdr
               lazydocker
               lazygit
               mosh
