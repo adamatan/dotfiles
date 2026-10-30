@@ -154,9 +154,14 @@ agent_panel_scope = "all"
 agent_panel_sort = "priority"
 [ui.sidebar.spaces]
 row_gap = 1
+# $epic comes from scripts/herdr_epic.py in breana: one colour per epic tag.
 rows = [
   ["state_icon", "workspace"],
-  ["branch", "git_status"],
+  [{ token = "$epic", bold = true, rules = [
+      { equals = "admin", fg = "#f5c2e7" },
+      { equals = "auth", fg = "#89b4fa" },
+      { equals = "ios", fg = "#a6e3a1" },
+    ] }, "branch", "git_status"],
 ]
 
 [ui.sidebar.agents]
