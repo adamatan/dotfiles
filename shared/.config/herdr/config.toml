@@ -148,20 +148,27 @@ description = "Refresh PR status"
 
 
 [ui]
+# Put the epic tokens back after a server restart; Herdr saves only labels.
+# Prints nothing, so the status area stays empty.
+tab_bar_right = [
+  { type = "command", command = "python3 ~/repos/breana/scripts/herdr_epic.py restore >/dev/null", interval_seconds = 60, timeout_seconds = 30 },
+]
 show_agent_labels_on_pane_borders = true
 agent_panel_scope = "all"
 
 agent_panel_sort = "priority"
 [ui.sidebar.spaces]
 row_gap = 1
-# $epic comes from scripts/herdr_epic.py in breana: one colour per epic tag.
+# $tag and $issue come from scripts/herdr_epic.py in breana: one colour per
+# epic tag. The workspace label is the short description.
 rows = [
-  ["state_icon", "workspace"],
-  [{ token = "$epic", bold = true, rules = [
-      { equals = "admin", fg = "#f5c2e7" },
-      { equals = "auth", fg = "#89b4fa" },
-      { equals = "ios", fg = "#a6e3a1" },
-    ] }, "branch", "git_status"],
+  ["state_icon", { token = "$tag", bold = true, rules = [
+      { contains = "admin", fg = "#f5c2e7" },
+      { contains = "auth", fg = "#89b4fa" },
+      { contains = "ios", fg = "#a6e3a1" },
+      { contains = "mls", fg = "#fab387" },
+    ] }, "$issue"],
+  ["workspace"],
 ]
 
 [ui.sidebar.agents]
